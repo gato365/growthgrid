@@ -1,10 +1,9 @@
 const express = require('express');
 const router = express.Router();
+const { getBeliefs } = require('../controllers/beliefsController');
 
 
-router.get('/', (req, res) => { 
-    res.status(200).json({message: 'Get Beliefs'});
-});
+router.get('/', getBeliefs);
 
 
 router.post('/', (req, res) => { 
