@@ -13,6 +13,13 @@ const getBeliefs = (req, res) => {
 // @Route:  Post /api/beliefs
 // @Access: Private
 const createBeliefs = (req, res) => {
+
+    console.log(req.body);
+
+    if(!req.body.text){
+        res.status(400)
+        throw new Error('Please enter text')
+    }
     res.status(200).json({ message: 'Create Beliefs' });
 
 };
