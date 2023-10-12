@@ -1,18 +1,18 @@
-
+const asyncHandler = require('express-async-handler');
 
 // @Desc:   Get Beliefs
 // @Route:  GET /api/beliefs
 // @Access: Private
-const getBeliefs = (req, res) => {
+const getBeliefs = asyncHandler(async (req, res) => {
     res.status(200).json({ message: 'Get Beliefs' });
 
-};
+});
 
 
 // @Desc:   Create Beliefs
 // @Route:  Post /api/beliefs
 // @Access: Private
-const createBeliefs = (req, res) => {
+const createBeliefs = asyncHandler(async (req, res) => {
 
     console.log(req.body);
 
@@ -22,24 +22,24 @@ const createBeliefs = (req, res) => {
     }
     res.status(200).json({ message: 'Create Beliefs' });
 
-};
+});
 
 // @Desc:   Update Beliefs
 // @Route:  Put /api/beliefs/:id
 // @Access: Private
-const updateBeliefs = (req, res) => {
+const updateBeliefs = asyncHandler(async (req, res) => {
     res.status(200).json({ message: `Update beliefs ${req.params.id}` });
 
-};
+});
 
 
 // @Desc:   Delete Beliefs
 // @Route:  Delete /api/beliefs/:id
 // @Access: Private
-const deleteBeliefs = (req, res) => {
+const deleteBeliefs = asyncHandler(async (req, res) => {
     res.status(200).json({ message: `Delete beliefs ${req.params.id}` });
 
-};
+});
 
 module.exports = {
     getBeliefs,
