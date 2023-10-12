@@ -1,10 +1,14 @@
 const asyncHandler = require('express-async-handler');
 
+const Beliefs = require('../models/beliefs');
+
 // @Desc:   Get Beliefs
 // @Route:  GET /api/beliefs
 // @Access: Private
 const getBeliefs = asyncHandler(async (req, res) => {
-    res.status(200).json({ message: 'Get Beliefs' });
+    const beliefs = await Beliefs.find({});
+
+    res.status(200).json({ beliefs });
 
 });
 
@@ -16,7 +20,7 @@ const createBeliefs = asyncHandler(async (req, res) => {
 
     console.log(req.body);
 
-    if(!req.body.text){
+    if (!req.body.text) {
         res.status(400)
         throw new Error('Please enter text')
     }

@@ -17,6 +17,10 @@ const beliefsSchema = mongoose.Schema({
         type: Number,
         default: 0,
         required: [true, 'Please add a conviction']
-    }
+    },
+  
+    
 
 });
+
+module.exports = mongoose.model('Beliefs', beliefsSchema);
